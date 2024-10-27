@@ -1,9 +1,11 @@
 # oracle-dba-scripts
 
 Oracle DBA Scripts Repository
+
 Welcome to the Oracle DBA Scripts Repository! 🎉 This repository is a comprehensive collection of SQL scripts designed to aid Oracle Database Administrators of all levels—from beginners to seasoned professionals—in managing and monitoring Oracle databases effectively.
 
 📜 Overview
+
 This repository contains a variety of scripts organized into folders by specific DBA functions, including monitoring, performance tuning, security, backup and recovery, tablespace management, and more. Each script is crafted to help you perform routine checks, troubleshoot issues, optimize performance, and maintain the overall health of your Oracle database environments.
 
 Whether you're an entry-level DBA just starting out or a lead DBA managing complex database architectures, you’ll find scripts here that will make your day-to-day tasks smoother and more efficient.
