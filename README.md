@@ -1,17 +1,15 @@
-# oracle-dba-scripts
-
 # Oracle DBA Scripts Repository
 
-Welcome to the **Oracle DBA Scripts Repository**! 🎉 
-### This repository is a comprehensive collection of SQL scripts designed to aid Oracle Database Administrators of all levels—from beginners to seasoned professionals—in managing and monitoring Oracle databases effectively.
+## Welcome to the **Oracle DBA Scripts Repository**! 🎉 
+#### This repository is a comprehensive collection of SQL scripts designed to aid Oracle Database Administrators of all levels—from beginners to seasoned professionals—in managing and monitoring Oracle databases effectively.
 
 ## 📜 Overview
-This repository contains a variety of scripts organized into folders by specific DBA functions, including **monitoring**, **performance tuning**, **security**, **backup and recovery**, **tablespace management**, and more. Each script is crafted to help you perform routine checks, troubleshoot issues, optimize performance, and maintain the overall health of your Oracle database environments.
+#### This repository contains a variety of scripts organized into folders by specific DBA functions, including **monitoring**, **performance tuning**, **security**, **backup and recovery**, **tablespace management**, and more. Each script is crafted to help you perform routine checks, troubleshoot issues, optimize performance, and maintain the overall health of your Oracle database environments.
 
-Whether you're an entry-level DBA just starting or a lead DBA managing complex database architectures, you’ll find scripts here to make your day-to-day tasks smoother and more efficient.
+#### Whether you're an entry-level DBA just starting or a lead DBA managing complex database architectures, you’ll find scripts here to make your day-to-day tasks smoother and more efficient.
 
 ## 🗂 Directory Structure
-Here’s a quick look at the main folders in this repository:
+#### Here’s a quick look at the main folders in this repository:
 
 - **Monitoring**: Essential scripts to monitor database health, sessions, and resource usage.
 - **Performance_Tuning**: Scripts focused on analyzing and improving database performance.
@@ -42,14 +40,15 @@ Here’s a quick look at the main folders in this repository:
 - **Customization**: Feel free to modify scripts to better fit your database environment.
 
 ## 🤝 Contributing
-If you have a script or improvement you'd like to share, contributions are always welcome! Fork this repository, make your changes, and submit a pull request. Please ensure your scripts follow the structure and formatting conventions used here.
+#### If you have a script or improvement you'd like to share, contributions are always welcome! Fork this repository, make your changes, and submit a pull request. Please ensure your scripts follow the structure and formatting conventions used here.
 
 ## 🛠 Future Plans
-Adding more scripts for Data Guard and ASM Management.
-Creating documentation files for each folder to explain common DBA scenarios.
-Adding automation scripts to streamline recurring DBA tasks.
-📞 Support
-If you encounter any issues, feel free to raise them in the Issues section. For general questions, suggestions, or collaboration opportunities, don’t hesitate to reach out.
+#### Adding more scripts for Data Guard and ASM Management.
+#### Creating documentation files for each folder to explain common DBA scenarios.
+#### Adding automation scripts to streamline recurring DBA tasks.
+
+## 📞 Support
+#### If you encounter any issues, feel free to raise them in the Issues section. For general questions, suggestions, or collaboration opportunities, don’t hesitate to reach out.
 
 ## 📄 License
 This repository is open-source and available under the MIT License.
