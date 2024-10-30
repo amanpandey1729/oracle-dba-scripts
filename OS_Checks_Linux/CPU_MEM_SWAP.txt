@@ -24,7 +24,7 @@ SWAP:
 MEMORY:
 
 - Top 10 Memory Consuming Processes:
-# ps -eo pid, ppid, cmd, %mem, %cpu --sort=-%mem | head -10
+# ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head -10
 
 - TOP Command {sort by Memory}
 # top -o %MEM 
@@ -39,7 +39,7 @@ MEMORY:
 CPU:
 
 - Top 10 CPU Consuming Processes:
-# ps -eo pid, ppid, cmd, %mem, %cpu --sort=-%cpu | head -10
+# ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head -10
 
 
 
