@@ -1,0 +1,104 @@
+SWAP:
+
+- Swap Utilized by a process {Enter Process ID}
+# echo $((`grep Swap /proc/<pid>/smaps | awk '{print $2;}' | tr '\n' '+' `0))
+
+- Swap utilized by Top 20 processes in descending order of the swap size
+# for file in /proc/*/status ; do awk '/VmSwap|Name/{printf $2 " " $3}END{print " "}' $file; done | sort -k 2 -n -r | head -20
+
+- TOP Command {sort by Swap}
+# top -o SWAP 
+- or -
+# top 
+	> f
+	> Use down arrow to reach SWAP
+	> d OR <Space> {to select SWAP}
+	> right arrow to select the SWAP column to reorder
+	> use up arrow to bring it up
+	> Type s to select SWAP as sort column
+	> Typq q to return to main screen
+	> Shift + w to save current top configuration {Optional}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+MEMORY:
+
+- Top 10 Memory Consuming Processes:
+# ps -eo pid, ppid, cmd, %mem, %cpu --sort=-%mem | head -10
+
+- TOP Command {sort by Memory}
+# top -o %MEM 
+- or -
+# top 
+	> Shft + M
+
+- Show Memory  Usage for Active Sessions
+
+SELECT to_char(ssn.sid, '9999') || ' - ' || nvl(ssn.username, nvl(bgp.name, 'background')) ||' - '||
+nvl(lower(ssn.machine), ins.host_name) "SESSION",
+to_char(prc.spid, '999999999') "PID/THREAD",
+to_char((se1.value/1024)/1024, '999G999G990D00') || ' MB' " CURRENT SIZE",
+to_char((se2.value/1024)/1024, '999G999G990D00') || ' MB' " MAXIMUM SIZE"
+FROM v$sesstat se1, v$sesstat se2, v$session ssn, v$bgprocess bgp, v$process prc,
+v$instance ins, v$statname stat1, v$statname stat2
+WHERE se1.statistic# = stat1.statistic# and stat1.name = 'session pga memory'
+AND se2.statistic# = stat2.statistic# and stat2.name = 'session pga memory max'
+AND se1.sid = ssn.sid
+AND se2.sid = ssn.sid
+AND ssn.paddr = bgp.paddr (+)
+AND ssn.paddr = prc.addr (+);
+	
+----------------------------------------------------------------------------------------------------------------------------------------------------
+	
+CPU:
+
+- Top 10 CPU Consuming Processes:
+# ps -eo pid, ppid, cmd, %mem, %cpu --sort=-%cpu | head -10
+
+
+- Show CPU Usage for Active Sessions
+
+SET PAUSE ON
+SET PAUSE 'Press Return to Continue'
+SET PAGESIZE 60
+SET LINESIZE 300
+
+COLUMN username FORMAT A30
+COLUMN sid FORMAT 999,999,999
+COLUMN serial# FORMAT 999,999,999
+COLUMN "cpu usage (seconds)" FORMAT 999,999,999.0000
+
+SELECT
+s.username,
+t.sid,
+s.serial#,
+SUM(VALUE/100) as "cpu usage (seconds)"
+FROM
+v$session s,
+v$sesstat t,
+v$statname n
+WHERE
+t.STATISTIC# = n.STATISTIC#
+AND
+NAME like '%CPU used by this session%'
+AND
+t.SID = s.SID
+AND
+s.status='ACTIVE'
+AND
+s.username is not null
+GROUP BY username,t.sid,s.serial#
+/
+
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+
+How to properly check system memory usage?
+
+# free -h
+              total        used        free      shared  buff/cache   available
+Mem:           7.7G        2.5G        1.0G        100M        4.2G        5.0G
+Swap:          2.0G        500M        1.5G
+
+
+True Calculation for free memory is : [(free + buff/cache)/total] *100

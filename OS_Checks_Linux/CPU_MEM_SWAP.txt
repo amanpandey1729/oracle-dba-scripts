@@ -1,0 +1,57 @@
+SWAP:
+
+- Swap Utilized by a process {Enter Process ID}
+# echo $((`grep Swap /proc/<pid>/smaps | awk '{print $2;}' | tr '\n' '+' `0))
+
+- Swap utilized by Top 20 processes in descending order of the swap size
+# for file in /proc/*/status ; do awk '/VmSwap|Name/{printf $2 " " $3}END{print " "}' $file; done | sort -k 2 -n -r | head -20
+
+- TOP Command {sort by Swap}
+# top -o SWAP 
+- or -
+# top 
+	> f
+	> Use down arrow to reach SWAP
+	> d OR <Space> {to select SWAP}
+	> right arrow to select the SWAP column to reorder
+	> use up arrow to bring it up
+	> Type s to select SWAP as sort column
+	> Typq q to return to main screen
+	> Shift + w to save current top configuration {Optional}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+MEMORY:
+
+- Top 10 Memory Consuming Processes:
+# ps -eo pid, ppid, cmd, %mem, %cpu --sort=-%mem | head -10
+
+- TOP Command {sort by Memory}
+# top -o %MEM 
+- or -
+# top 
+	> Shft + M
+
+
+	
+----------------------------------------------------------------------------------------------------------------------------------------------------
+	
+CPU:
+
+- Top 10 CPU Consuming Processes:
+# ps -eo pid, ppid, cmd, %mem, %cpu --sort=-%cpu | head -10
+
+
+
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+
+How to properly check system memory usage?
+
+# free -h
+              total        used        free      shared  buff/cache   available
+Mem:           7.7G        2.5G        1.0G        100M        4.2G        5.0G
+Swap:          2.0G        500M        1.5G
+
+
+True Calculation for free memory is : [(free + buff/cache)/total] *100
